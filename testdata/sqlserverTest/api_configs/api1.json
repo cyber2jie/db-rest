@@ -1,0 +1,17 @@
+{
+  "name": "user",
+  "description": "simple api collection",
+  "api_list": [
+    {
+      "name": "users",
+      "sql": "select id, \"user\",pwd from users",
+      "description": "users api",
+      "db_name": "sqlserver",
+      "columns": [
+        "id",
+        "user",
+        "pwd"
+      ]
+    }
+  ]
+}

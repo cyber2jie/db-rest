@@ -1,0 +1,12 @@
+name: simple
+basic_config:
+  prefix: /api
+  db_list:
+  - name: mysql
+    db_type: mysql
+    link_url: root:q123456@tcp(127.0.0.1:3306)/db_rest?allowNativePasswords=true&charset=utf8
+  auth:
+    enable: false
+    user: admin
+    pass: admin
+  bind: :8080

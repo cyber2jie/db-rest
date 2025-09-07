@@ -1,0 +1,67 @@
+## BasicConfig 配置（basic_config）
+1. prefix
+作用：设置 REST API 的全局路由前缀
+默认值："/"（根路径）
+示例：
+配置为 "/"：API 接口路径为 /users
+配置为 "/api"：API 接口路径为 /api/users
+配置为 "/v1"：API 接口路径为 /v1/users
+2. bind
+配置服务启动ip，端口号
+默认值: :8080
+3. auth
+配置授权账号
+enable 是否启用
+默认值: true
+user 用户名
+默认值: admin
+pass 密码
+默认值: admin
+*启用了权限控制需要通过/api/token 获取token值，请求时带入header中Authorization: Bearer {token}
+4. db_list
+配置数据源,可配置多个，配置后可在ApiConfigCollection配置中引用。
+name 名称，唯一，用于引用数据源。
+db_type 数据源类型。支持（sqlite，mysql，postgres，oracle，sqlserver）
+link_url 数据源链接。
+
+## link_url 说明
+db-rest集成的数据库连接驱动配置，符合驱动包配置即可，具体配置可以查询对应驱动文档。
+mysql 驱动包github.com/go-sql-driver/mysql
+链接配置方式：username:password@protocol(address)/dbname?param=value&param2=value2
+Oracle 驱动包github.com/godror/godror
+链接配置方式1：oracle://user:pass@localhost/sid
+链接配置方式2：user="scott" password="tiger" connectString="dbhost:1521/orclpdb1"
+postgresql 驱动包github.com/lib/pq
+链接配置方式: postgres://pqgotest:password@localhost/pqgotest?sslmode=disable
+sqlite 驱动包github.com/mattn/go-sqlite3
+链接配置方式: file:sqlite.db?cache=shared&mode=rwc
+sqlserver 驱动包github.com/denisenkom/go-mssqldb
+链接配置方式: sqlserver://username:password@host:port?database=master&param1=value&param2=value
+更多配置方式可以参考驱动文档
+
+## ApiConfigCollection 配置
+文件分布在目录api_configs下，可按业务拆分文件。
+name 命名
+description 说明
+api_list 表到api配置项(ApiConfig)
+
+ApiConfig配置
+name 命名 示例: 访问路由（/全局路由前缀/Collection路由前缀/配置name）
+sql 数据抽取sql (注意部分数据库不支持子查询中order by等语句,尽量保持select xxx,xxx2 from xxx的结构)
+description 说明
+db_name 引用db_list中配置的数据源
+columns 抽取字段名，（sql中需包含，未包含则为空）
+transform_js_path 自定义转化脚本路径。
+* transform_js 需要定义一个transform的函数，这个函数会传入DataRow的对象，可以对其进行操作
+示例
+function transform(row){
+    for (var i = 0; i < row.columns.length; i++) {
+        var column = row.columns[i];
+        if (column.name == "name"){
+            column.value=row.row_num+":"+column.value.toUpperCase();
+        }
+    }
+}
+
+
+

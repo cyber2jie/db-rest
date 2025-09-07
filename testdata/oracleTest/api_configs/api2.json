@@ -1,0 +1,16 @@
+{
+  "name": "fruits",
+  "description": "simple api collection",
+  "api_list": [
+    {
+      "name": "fruit",
+      "sql": "SELECT ID,NAME FROM FRUITS",
+      "description": "fruit api",
+      "db_name": "oracle2",
+      "columns": [
+        "ID",
+        "NAME"
+      ]
+    }
+  ]
+}

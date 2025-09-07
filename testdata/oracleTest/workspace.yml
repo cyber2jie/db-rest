@@ -1,0 +1,15 @@
+name: simple
+basic_config:
+  prefix: /api
+  db_list:
+  - name: oracle
+    db_type: oracle11g
+    link_url: user="DB_REST" password="q123456!" connectString="127.0.0.1:1521/ORCLPDB"
+  - name: oracle2
+    db_type: oracle11g
+    link_url: oracle://DB_REST:q123456!@127.0.0.1:1521/ORCLPDB
+  auth:
+    enable: false
+    user: admin
+    pass: admin
+  bind: :8080

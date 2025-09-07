@@ -1,0 +1,18 @@
+{
+  "name": "fruits",
+  "description": "simple api collection",
+  "api_list": [
+    {
+      "name": "fruit",
+      "sql": "select id, name,price from fruits",
+      "description": "fruit api",
+      "db_name": "sqlite",
+      "columns": [
+        "id",
+        "name",
+        "price"
+      ],
+      "transform_js_path": "transform-js/simple.js"
+    }
+  ]
+}

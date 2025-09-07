@@ -1,0 +1,30 @@
+name: simple
+basic_config:
+  prefix: /api
+  db_list:
+  - name: sqlite
+    db_type: sqlite
+    link_url: file:sqlite.db?cache=shared&mode=rwc
+  - name: mysql
+    db_type: mysql
+    link_url: username:password@protocol(address)/dbname?param=value&param2=value2
+  - name: postgres
+    db_type: postgres
+    link_url: postgres://pqgotest:password@localhost/pqgotest?sslmode=disable
+  - name: oracle
+    db_type: oracle
+    link_url: oracle://user:pass@localhost/sid
+  - name: sqlserver
+    db_type: sqlserver
+    link_url: sqlserver://username:password@host:port?database=master&param1=value&param2=value
+  - name: mysql1
+    db_type: mysql
+    link_url: username:password@protocol(address)/dbname?param=value&param2=value2
+  - name: mysql2
+    db_type: mysql
+    link_url: username:password@protocol(address)/dbname?param=value&param2=value2
+  auth:
+    enable: false
+    user: admin
+    pass: admin
+  bind: :8080

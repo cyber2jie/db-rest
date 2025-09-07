@@ -1,0 +1,18 @@
+{
+  "name": "user",
+  "description": "simple api collection",
+  "api_list": [
+    {
+      "name": "users",
+      "sql": "select u.ID,u.NAME,info.EMAIL,info.LOCATION from USERS u join USER_INFO info on u.ID=info.USERID",
+      "description": "users api",
+      "db_name": "oracle",
+      "columns": [
+        "ID",
+        "NAME",
+        "EMAIL",
+        "LOCATION"
+      ]
+    }
+  ]
+}

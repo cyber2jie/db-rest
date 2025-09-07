@@ -1,0 +1,12 @@
+name: simple
+basic_config:
+  prefix: /api
+  db_list:
+  - name: postgres
+    db_type: postgres
+    link_url: postgres://db_rest:q123456!@127.0.0.1:5432/db_rest?sslmode=disable
+  auth:
+    enable: true
+    user: admin
+    pass: admin
+  bind: :8080

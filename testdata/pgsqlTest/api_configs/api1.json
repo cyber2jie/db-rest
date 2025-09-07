@@ -1,0 +1,30 @@
+{
+  "name": "user",
+  "description": "simple api collection",
+  "api_list": [
+    {
+      "name": "users",
+      "sql": "select id, name from users",
+      "description": "users api",
+      "db_name": "postgres",
+      "columns": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "name": "contacts",
+      "sql": "select id,user_id,contact_name,phone,email from contacts",
+      "description": "contacts api",
+      "db_name": "postgres",
+      "columns": [
+        "id",
+        "user_id",
+        "contact_name",
+        "phone",
+        "email"
+      ],
+      "transform_js_path": "transform-js/simple.js"
+    }
+  ]
+}

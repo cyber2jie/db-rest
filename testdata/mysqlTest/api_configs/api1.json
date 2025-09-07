@@ -1,0 +1,17 @@
+{
+  "name": "question",
+  "description": "simple api collection",
+  "api_list": [
+    {
+      "name": "question",
+      "sql": "select instruct, input,output from questions",
+      "description": "question api",
+      "db_name": "mysql",
+      "columns": [
+        "instruct",
+        "input",
+        "output"
+      ]
+    }
+  ]
+}
